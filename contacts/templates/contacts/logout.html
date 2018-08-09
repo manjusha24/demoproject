@@ -1,0 +1,14 @@
+{% extends "contacts/base.html" %}
+{% block edit_urls %}
+    <ul class="nav navbar-nav navbar-right">
+		<ul class="nav navbar-nav">
+        <li>
+            <h3>You are logged out. <a href="{% url 'contacts:login' %}">Click here</a> to login again.</h3>
+        </li>
+    </ul>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

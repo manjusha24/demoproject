@@ -1,0 +1,43 @@
+{% extends "contacts/base.html" %}
+{% block edit_urls %}
+	<ul class="nav navbar-nav">
+        <li>
+	    	<a href="{% url 'contacts:add_contact' %}">Add Contact</a>
+		</li>
+	</ul>
+    <ul class="nav navbar-nav navbar-right">
+		<li>
+	    	<a href="{% url 'contacts:logout' %}">Logout</a>
+		</li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <h2>My Contacts</h2>            
+  <table class="table">
+	<thead>
+	  <tr>
+		<th>Contact Name</th>
+		<th>Email</th>
+		<th>Phone Number</th>
+	  </tr>
+	</thead>
+	<tbody>
+		{% if contacts_list %}
+			{% for contact in contacts_list %}
+				<tr>
+					<td>{{ contact.name }}</td>
+					<td>{{ contact.email }}</td>
+					<td>{{ contact.phone }}</td>
+				</tr>
+			{% endfor %}
+		{% else %}
+			<tr>No contacts are available.</tr>
+		{% endif %}
+	
+	</tbody>
+  </table>
+</div>
+{% endblock %}
